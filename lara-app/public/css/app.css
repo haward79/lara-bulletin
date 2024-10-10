@@ -1,0 +1,16 @@
+@charset "utf-8";
+
+body
+{
+    margin: 40px auto;
+    width: 1024px;
+}
+
+footer
+{
+    margin: 40px auto 0;
+    padding: 20px 0 0;
+    border-top: 1px solid #818181;
+    color: #818181;
+    text-align: center;
+}

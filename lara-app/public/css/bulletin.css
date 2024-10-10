@@ -1,0 +1,41 @@
+@charset "utf-8";
+
+.bulletin_list
+{
+    width: 100%;
+}
+
+.bulletin_list_type
+{
+    padding: 5px 10px;
+    width: 60px;
+    border-radius: 5px;
+    color: #ffffff;
+}
+
+.bulletin_list_type.activity
+{
+    background-color: #ab7a1b;
+}
+
+.bulletin_list_type.urgency
+{
+    background-color: #c24201;
+}
+
+.bulletin_list_type.staff
+{
+    background-color: #6fab1b;
+}
+
+.bulletin_list_title
+{
+    padding: 5px 10px;
+    width: calc(100% - 110px);
+}
+
+.bulletin_list_update
+{
+    padding: 5px 10px;
+    width: 50px;
+}
