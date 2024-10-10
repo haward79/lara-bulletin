@@ -6,6 +6,21 @@ body
     width: 1024px;
 }
 
+form
+{
+    margin: 20px auto;
+    padding: 20px;
+    width: 80%;
+    border: 1px solid #c1c1c1;
+    border-radius: 10px;
+    box-shadow: #dfdfdf 5px 5px 10px;
+}
+
+.form-group
+{
+    margin: 0 0 15px;
+}
+
 footer
 {
     margin: 40px auto 0;

@@ -1,15 +1,14 @@
 services:
   web:
     image: bitnami/laravel
-    environment:
-      TZ: "Asia/Taipei"
     env_file: "laravel.env"
     networks:
       - internal
     ports:
       - "8000:8000"
     volumes:
-      - ./lara-app:/app
+      - "/etc/localtime:/etc/localtime:ro"
+      - "./lara-app:/app"
     user: "1000"
     depends_on:
       database:
@@ -17,15 +16,14 @@ services:
   
   database:
     image: bitnami/mariadb
-    environment:
-      TZ: "Asia/Taipei"
     env_file: "mariadb.env"
     networks:
       - internal
     ports:
       - "33060:3306"
     volumes:
-      - ./maria-data:/bitnami/mariadb
+      - "/etc/localtime:/etc/localtime:ro"
+      - "./maria-data:/bitnami/mariadb"
     user: "1000"
     healthcheck:
       test: ["CMD", "/opt/bitnami/scripts/mariadb/healthcheck.sh"]

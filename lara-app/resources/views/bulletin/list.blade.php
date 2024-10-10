@@ -4,7 +4,7 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-        <title>List Bulletins</title>
+        <title>公告列表</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net" />
@@ -16,18 +16,28 @@
         <link rel="stylesheet" href="{{ asset('css/bulletin.css') }}" />
     </head>
     <body>
-        @if($bulletins->isEmpty())
-            <div class="alert alert-info">There is no bulletin.</div>
+        <div class="bulletin_action_block">
+            <a class="btn btn-dark" target="_blank" href="/create">新增</a>
+        </div>
+
+        @if(session('success'))
+            <div class="alert alert-info">{{ session('success') }}</div>
+        @elseif(session('fail'))
+            <div class="alert alert-danger">{!! session('fail') !!}</div>
+        @endif
+
+        @if(!isset($bulletins) or $bulletins->isEmpty())
+            <div class="alert alert-info">目前沒有公告喔，稍後再回來看看吧！</div>
         @else
-            <table class="bulletin_list">
+            <div class="bulletin_list">
                 @foreach($bulletins as $bulletin)
-                    <tr>
-                        <td class="bulletin_list_type {{ $bulletin->type }}">{{ $bulletin->type }}</td>
-                        <td class="bulletin_list_title">{{ $bulletin->title }}</td>
-                        <td class="bulletin_list_update">{{ $bulletin->updated_at->format('m/d') }}</td>
-                    </tr>
+                    <div class="bulletin_list_element">
+                        <div class="bulletin_list_type bulletin_type_{{ $bulletin->type }}">{{ $bulletin->type_chinese }}</div>
+                        <div class="bulletin_list_title"><a target="_blank" href="/{{ $bulletin->id }}">{{ $bulletin->title }}</a></div>
+                        <div class="bulletin_list_update">{{ $bulletin->updated_at->format('m/d') }}</div>
+                    </div>
                 @endforeach
-            </table>
+            </div>
         @endif
 
         <footer>
