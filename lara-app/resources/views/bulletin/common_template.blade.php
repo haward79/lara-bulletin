@@ -9,8 +9,12 @@
     @include('bulletin.includes.header')
 
     <body>
-        @include('bulletin.includes.breadcrumb')
+        <header>
+            @include('bulletin.includes.breadcrumb')
+        </header>
+
         @include('bulletin.includes.actionBar')
+
         @yield('content')
     </body>
 
