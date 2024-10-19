@@ -9,11 +9,10 @@
     <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
 
     <!-- Styles -->
-    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" />
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}" />
-    <link rel="stylesheet" href="{{ asset('css/bulletin.css') }}" />
+    @vite(['resources/css/bootstrap.min.css', 'resources/css/app.css', 'resources/css/bulletin.css'])
+    <style>@yield('css')</style>
 
     <!-- JavaScripts -->
-    <script type="text/javascript" src="{{ asset('js/jquery.min.js') }}"></script>
-    @yield('js')
+    @vite(['resources/js/jquery.min.js'])
+    <script type="module">@yield('js')</script>
 </head>

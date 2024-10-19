@@ -5,16 +5,29 @@ services:
     networks:
       - internal
     ports:
-      - "8000:8000"
+      - "8080:8080"
     volumes:
       - "/etc/localtime:/etc/localtime:ro"
       - "./lara-app:/app"
     user: "1000"
     depends_on:
-      database:
+      db:
         condition: service_healthy
+        
+  vite:
+    image: node
+    networks:
+      - internal
+    ports:
+      - "8081:8081"
+    volumes:
+      - "/etc/localtime:/etc/localtime:ro"
+      - "./lara-app:/app"
+    user: "1000"
+    working_dir: "/app"
+    command: "yarn run dev --host 0.0.0.0 --port 8081"
   
-  database:
+  db:
     image: bitnami/mariadb
     env_file: "mariadb.env"
     networks:

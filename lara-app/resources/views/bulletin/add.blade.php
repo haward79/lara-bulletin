@@ -5,7 +5,7 @@
 @extends('bulletin.common_template')
 
 @section('content')
-    <form action="/create" method="POST">
+    <form class="default" action="/create" method="POST">
         @csrf
 
         <div class="form-group">

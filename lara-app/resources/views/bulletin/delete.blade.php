@@ -8,7 +8,7 @@
     @if(isset($bulletin))
         <div class="alert alert-danger">公告確認刪除後便無法復原，請謹慎操作！</div>
 
-        <form action="/{{ $bulletin->id }}/delete" method="POST">
+        <form class="default" action="/{{ $bulletin->id }}/delete" method="POST">
             @csrf
 
             <div class="form-group">

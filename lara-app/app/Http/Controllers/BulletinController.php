@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Bulletin;
 
 class BulletinController extends Controller
@@ -17,14 +18,14 @@ class BulletinController extends Controller
         ]);
     }
 
-    public function index()
+    public function index(Request $request)
     {
         $bulletins = Bulletin::all()->sortBy('updated_at', descending: true)->map(function ($bulletin) {
             $bulletin->type_chinese = Bulletin::getTypeToChinese($bulletin->type);
             return $bulletin;
         });
 
-        return view('bulletin.list', ['bulletins' => $bulletins]);
+        return view('bulletin.list', ['bulletins' => $bulletins, 'auth' => $request->user()]);
     }
 
     public function create()

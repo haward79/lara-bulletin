@@ -5,13 +5,11 @@
 @extends('bulletin.common_template')
 
 @section('js')
-    <script type="text/javascript">
-        $(document).ready(function () {
-            @if(isset($bulletin))
+    $(document).ready(function () {
+        @if(isset($bulletin))
             $('#bulletin_input_type').val('{{ $bulletin->type }}');
-            @endif
-        });
-    </script>
+        @endif
+    });
 @endsection
 
 @section('content')
@@ -20,7 +18,7 @@
             <div class="alert alert-danger">{!! session('fail') !!}</div>
         @endif
 
-        <form action="/{{ $bulletin->id }}/edit" method="POST">
+        <form class="default" action="/{{ $bulletin->id }}/edit" method="POST">
             @csrf
 
             <div class="form-group">

@@ -1,0 +1,46 @@
+@charset "utf-8";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+nav
+{
+    margin-bottom: 30px;
+    border-bottom: 1px solid #818181;
+}
+
+body
+{
+    margin: 40px auto;
+    width: 1024px;
+    background-color: #e6e9ff;
+}
+
+form.default
+{
+    margin: 20px auto;
+    padding: 20px;
+    width: 80%;
+    border: 1px solid #c1c1c1;
+    border-radius: 10px;
+    box-shadow: #dfdfdf 5px 5px 10px;
+}
+
+.form-group
+{
+    margin: 0 0 15px;
+}
+
+footer
+{
+    margin: 40px auto 0;
+    padding: 20px 0 0;
+    border-top: 1px solid #818181;
+    color: #818181;
+    text-align: center;
+}
+
+.dark\:bg-gray-900
+{
+    background-color: transparent !important;
+}

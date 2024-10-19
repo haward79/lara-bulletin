@@ -10,7 +10,7 @@
             <div class="alert alert-info">{{ session('success') }}</div>
         @endif
 
-        <form>
+        <form class="default">
             <div class="form-group">
                 <label for="bulletin_input_creation">建立</label>
                 <input type="text" class="form-control" id="bulletin_input_creation" value="{{ $bulletin->created_at }}" readonly>

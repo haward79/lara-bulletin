@@ -13,6 +13,7 @@
             @include('bulletin.includes.breadcrumb')
         </header>
 
+        @include('bulletin.includes.auth')
         @include('bulletin.includes.actionBar')
 
         @yield('content')
