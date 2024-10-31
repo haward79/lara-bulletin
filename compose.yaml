@@ -1,5 +1,5 @@
 services:
-  web:
+  backend:
     image: bitnami/laravel
     env_file: "laravel.env"
     networks:
@@ -14,7 +14,7 @@ services:
       db:
         condition: service_healthy
         
-  vite:
+  frontend:
     image: node
     networks:
       - internal
@@ -26,6 +26,16 @@ services:
     user: "1000"
     working_dir: "/app"
     command: "yarn run dev --host 0.0.0.0 --port 8081"
+    
+  node:
+    image: node
+    networks:
+      - internal
+    volumes:
+      - "/etc/localtime:/etc/localtime:ro"
+      - "./lara-app:/app"
+    user: "1000"
+    working_dir: "/app"
   
   db:
     image: bitnami/mariadb

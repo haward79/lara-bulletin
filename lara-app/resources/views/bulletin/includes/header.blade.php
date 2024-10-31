@@ -13,6 +13,6 @@
     <style>@yield('css')</style>
 
     <!-- JavaScripts -->
-    @vite(['resources/js/jquery.min.js'])
+    @vite(['resources/js/jquery.min.js', 'resources/js/app.js'])
     <script type="module">@yield('js')</script>
 </head>
