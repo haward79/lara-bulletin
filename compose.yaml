@@ -37,6 +37,7 @@ services:
       - "./lara-app:/app"
     user: "1000"
     working_dir: "/app"
+    command: "bash -c 'tail -f /dev/null'"
   
   db:
     image: bitnami/mariadb
